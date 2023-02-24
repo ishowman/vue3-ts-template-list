@@ -1,17 +1,40 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
 
+<script lang="ts" setup>
+import {
+  Document,
+  Menu as IconMenu,
+  Location,
+  Setting,
+} from '@element-plus/icons-vue'
+
+</script>
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <el-menu
+    default-active="2"
+    class="el-menu-vertical-demo"
+    :collapse="true"
+    :router="true"
+  >
+    <el-sub-menu index="/">
+      <template #title>
+        <el-icon><location /></el-icon>
+        <span>Home</span>
+      </template>
+    </el-sub-menu>
+    <el-menu-item index="/about">
+      <el-icon><icon-menu /></el-icon>
+      <template #title>about</template>
+    </el-menu-item>
+    <el-menu-item index="/table" >
+      <el-icon><document /></el-icon>
+      <template #title>table</template>
+    </el-menu-item>
+    <el-menu-item index="/data">
+      <el-icon><setting /></el-icon>
+      <template #title>Dashboard</template>
+    </el-menu-item>
+  </el-menu>
+  <router-view />
 </template>
 
 <style scoped>
