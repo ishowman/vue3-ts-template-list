@@ -4,6 +4,15 @@ import { ref } from 'vue'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+
+const open = () => {
+  ElMessage('this is a message.');
+  ElNotification({
+    title: 'Success',
+    message: 'This is a success message',
+    type: 'success',
+  })
+}
 </script>
 
 <template>
@@ -28,7 +37,7 @@ const count = ref(0)
     <el-link type="primary" href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</el-link>
     in your IDE for a better DX
   </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <p class="read-the-docs" @click="open">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <style scoped>
